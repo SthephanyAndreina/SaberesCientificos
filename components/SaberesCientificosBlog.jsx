@@ -274,8 +274,7 @@ export default function SaberesCientificosBlog() {
                 }}
               >
                 Saberes Científicos combina divulgación, orientación vocacional y acompañamiento académico continuo. Somos estudiantes y egresados de la
-                <strong style={{ color: "#fff" }}>Universidad Simón Bolívar</strong>, queremos ofrecer atención directa a todos nuestros jóvenes estudiantes de educación media, ponemos a la alcance de tu mano el conocimiento científico, resolvemos dudas sobre el ingreso universitario,
-                investigación escolar y uso responsable de herramientas digitales.
+                <strong style={{ color: "#fff" }}> Universidad Simón Bolívar</strong>, queremos despertar la curiosidad científica de todos nuestros jóvenes estudiantes de educación media, atendiendo de forma directa sus dudas y guiándolos en cada paso.
               </p>
               <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 14, ...stagger(4) }}>
                 <a
