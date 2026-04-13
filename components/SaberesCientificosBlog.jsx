@@ -7,6 +7,7 @@ export default function SaberesCientificosBlog() {
   const chatUsbLogo = "/arbboard05_chatUSB.png";
   const logoSrc = "/artboard01_hardbackground.png";
   const usbLogoSrc = "/USB_logo.png";
+  const heroBg = "/jardines.jpg";
 
   const [loaded, setLoaded] = useState(false);
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -137,7 +138,15 @@ export default function SaberesCientificosBlog() {
         style={{
           position: "relative",
           overflow: "hidden",
-          background: `linear-gradient(155deg, ${c.negro} 0%, #0a2e33 25%, ${c.cian} 50%, ${c.magenta} 75%, ${c.fuccia} 100%)`,
+          backgroundImage: `linear-gradient(
+            135deg,
+            rgba(6, 14, 18, 0.78) 0%,
+            rgba(8, 26, 30, 0.62) 35%,
+            rgba(8, 24, 30, 0.58) 100%
+          ), url(${heroBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
           paddingBottom: "1px",
         }}
       >
@@ -157,7 +166,7 @@ export default function SaberesCientificosBlog() {
               height: orb.w,
               borderRadius: "50%",
               backgroundColor: orb.bg,
-              opacity: 0.12,
+              opacity: 0.08,
               filter: "blur(80px)",
               animation: `pulse-glow 6s ease-in-out ${orb.delay} infinite`,
               pointerEvents: "none",
@@ -365,7 +374,7 @@ export default function SaberesCientificosBlog() {
                   borderRadius: 32,
                   background: `linear-gradient(135deg, ${c.cian}88, ${c.fuccia}88, ${c.naranja}88)`,
                   filter: "blur(40px)",
-                  opacity: 0.4,
+                  opacity: 0.28,
                   animation: "float 8s ease-in-out infinite",
                 }}
               />
