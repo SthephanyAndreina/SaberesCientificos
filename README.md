@@ -31,6 +31,4 @@ Abre `http://localhost:3000`.
 - `app/globals.css` → estilos base globales
 - `vercel.json` → configuración simple para Vercel
 
-## Nota
 
-El componente original fue integrado como componente cliente para que funcione correctamente con `useState` y `useEffect`.
