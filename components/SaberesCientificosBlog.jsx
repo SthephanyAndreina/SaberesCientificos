@@ -44,7 +44,7 @@ export default function SaberesCientificosBlog() {
     },
     {
       title: "Acompañamiento continuo",
-      text: "Las dudas más importantes suelen aparecer después de las charlas. ChatUSB mantiene el contacto cuando realmente se necesita.",
+      text: "Las dudas más importantes suelen aparecer después de las charlas. chatUSB mantiene el contacto cuando realmente se necesita.",
       accent: c.fuccia,
       icon: "🤝",
       num: "03",
@@ -221,7 +221,7 @@ export default function SaberesCientificosBlog() {
               onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 24px rgba(0,0,0,0.2)"; }}
             >
               <span style={{ fontSize: 18 }}>💬</span>
-              Unirme a ChatUSB
+              Unirme a chatUSB
             </a>
           </nav>
 
@@ -273,8 +273,8 @@ export default function SaberesCientificosBlog() {
                   ...stagger(3),
                 }}
               >
-                Saberes Científicos combina divulgación, orientación vocacional y acompañamiento académico continuo. A través de{" "}
-                <strong style={{ color: "#fff" }}>ChatUSB</strong>, ofrecemos un canal humano para resolver dudas sobre ingreso universitario,
+                Saberes Científicos combina divulgación, orientación vocacional y acompañamiento académico continuo. Somos estudiantes y egresados de la
+                <strong style={{ color: "#fff" }}>Universidad Simón Bolívar</strong>, queremos ofrecer atención directa a todos nuestros jóvenes estudiantes de educación media, ponemos a la alcance de tu mano el conocimiento científico, resolvemos dudas sobre el ingreso universitario,
                 investigación escolar y uso responsable de herramientas digitales.
               </p>
               <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 14, ...stagger(4) }}>
@@ -365,10 +365,10 @@ export default function SaberesCientificosBlog() {
                 >
                   <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
                     <div style={{ width: 8, height: 8, borderRadius: "50%", background: c.cian }} />
-                    <p style={{ fontSize: 13, fontWeight: 700, color: c.cian, fontFamily: "'Space Mono', monospace" }}>chatusb.bot</p>
+                    <p style={{ fontSize: 13, fontWeight: 700, color: c.cian, fontFamily: "'Space Mono', monospace" }}>Comunidad</p>
                   </div>
                   <p style={{ fontSize: 14, lineHeight: 1.7, color: "#444" }}>
-                    Un canal complementario para atender preguntas cuando realmente aparecen: después de las charlas, durante una tarea o al pensar en el futuro universitario.
+                    Un canal complementario para atender preguntas cuando realmente surgen: después de las charlas, durante una tarea o al pensar en el futuro universitario.
                   </p>
                 </div>
 
@@ -653,7 +653,7 @@ export default function SaberesCientificosBlog() {
             onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; }}
           >
             <span style={{ fontSize: 18 }}>💬</span>
-            Entrar a ChatUSB
+            Entrar a chatUSB
           </a>
         </div>
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", padding: "16px 28px", textAlign: "center" }}>
