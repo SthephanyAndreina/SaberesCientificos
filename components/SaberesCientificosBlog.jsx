@@ -223,8 +223,8 @@ export default function SaberesCientificosBlog() {
                 src={usbLogoSrc}
                 alt="Logo USB"
                 style={{
-                  width: 72,
-                  height: 72,
+                  width: 56,
+                  height: 56,
                   objectFit: "contain",
                   display: "block",
                   filter: "brightness(0) invert(1)",
@@ -386,8 +386,8 @@ export default function SaberesCientificosBlog() {
                     src={chatUsbLogo}
                     alt="ChatUSB"
                     style={{
-                      width: 120,
-                      height: 120,
+                      width: 220,
+                      height: 200,
                       margin: "0 auto",
                       objectFit: "contain",
                     }}
