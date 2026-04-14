@@ -276,7 +276,7 @@ export default function SaberesCientificosBlog() {
                   ...stagger(2),
                 }}
               >
-                Un espacio para <span style={{ color: c.verdeLima }}>aprender</span>, <span style={{ color: c.naranja }}>preguntar</span> y mantener el vínculo más allá de cada charla.
+                Un espacio para <span style={{ color: c.verdeLima }}>descubrir</span>, <span style={{ color: c.naranja }}>preguntar</span> y transformar más allá del aula.
               </h1>
 
               <p
@@ -346,7 +346,7 @@ export default function SaberesCientificosBlog() {
                   position: "relative",
                   borderRadius: 28,
                   border: "1px solid rgba(255,255,255,0.15)",
-                  background: "rgba(255,255,255,0.08)",
+                  background: "rgba(255,255,255,0.03)",
                   backdropFilter: "blur(24px)",
                   WebkitBackdropFilter: "blur(24px)",
                   padding: 32,
