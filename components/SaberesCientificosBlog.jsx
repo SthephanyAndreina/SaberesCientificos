@@ -102,14 +102,6 @@ export default function SaberesCientificosBlog() {
         * { margin: 0; padding: 0; box-sizing: border-box; }
         a { text-decoration: none; }
 
-        @keyframes float {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-14px) rotate(2deg); }
-        }
-        @keyframes pulse-glow {
-          0%, 100% { opacity: 0.3; transform: scale(1); }
-          50% { opacity: 0.6; transform: scale(1.08); }
-        }
         @keyframes grain {
           0%, 100% { transform: translate(0, 0); }
           10% { transform: translate(-2%, -2%); }
@@ -118,10 +110,12 @@ export default function SaberesCientificosBlog() {
           70% { transform: translate(2%, -3%); }
           90% { transform: translate(-3%, 2%); }
         }
+
         @keyframes marquee {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
+
         .grain::before {
           content: '';
           position: absolute;
@@ -150,30 +144,6 @@ export default function SaberesCientificosBlog() {
           paddingBottom: "1px",
         }}
       >
-        {[
-          { bg: c.verdeLima, w: 280, l: "-6%", t: "10%", delay: "0s" },
-          { bg: c.naranja, w: 220, l: "35%", t: "-8%", delay: "1.5s" },
-          { bg: c.fuccia, w: 200, l: "70%", t: "18%", delay: "3s" },
-          { bg: c.cian, w: 160, l: "85%", t: "-5%", delay: "0.8s" },
-        ].map((orb, i) => (
-          <div
-            key={i}
-            style={{
-              position: "absolute",
-              left: orb.l,
-              top: orb.t,
-              width: orb.w,
-              height: orb.w,
-              borderRadius: "50%",
-              backgroundColor: orb.bg,
-              opacity: 0.08,
-              filter: "blur(80px)",
-              animation: `pulse-glow 6s ease-in-out ${orb.delay} infinite`,
-              pointerEvents: "none",
-            }}
-          />
-        ))}
-
         <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "28px 28px 0" }}>
           <nav
             style={{
@@ -294,6 +264,7 @@ export default function SaberesCientificosBlog() {
                   Acercando la ciencia a la comunidad
                 </span>
               </div>
+
               <h1
                 style={{
                   marginTop: 24,
@@ -307,6 +278,7 @@ export default function SaberesCientificosBlog() {
               >
                 Un espacio para <span style={{ color: c.verdeLima }}>aprender</span>, <span style={{ color: c.naranja }}>preguntar</span> y mantener el vínculo más allá de cada charla.
               </h1>
+
               <p
                 style={{
                   marginTop: 24,
@@ -320,6 +292,7 @@ export default function SaberesCientificosBlog() {
                 Saberes Científicos combina divulgación, orientación vocacional y acompañamiento académico continuo. Somos estudiantes y egresados de la
                 <strong style={{ color: "#fff" }}> Universidad Simón Bolívar</strong>, queremos despertar la curiosidad científica de todos nuestros jóvenes estudiantes de educación media, atendiendo de forma directa sus dudas y guiándolos en cada paso.
               </p>
+
               <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 14, ...stagger(4) }}>
                 <a
                   href={telegramLink}
@@ -342,6 +315,7 @@ export default function SaberesCientificosBlog() {
                 >
                   Entrar al grupo de Telegram →
                 </a>
+
                 <a
                   href="#publicaciones"
                   style={{
@@ -369,17 +343,6 @@ export default function SaberesCientificosBlog() {
             <div style={{ position: "relative", ...stagger(5) }}>
               <div
                 style={{
-                  position: "absolute",
-                  inset: -12,
-                  borderRadius: 32,
-                  background: `linear-gradient(135deg, ${c.cian}88, ${c.fuccia}88, ${c.naranja}88)`,
-                  filter: "blur(40px)",
-                  opacity: 0.28,
-                  animation: "float 8s ease-in-out infinite",
-                }}
-              />
-              <div
-                style={{
                   position: "relative",
                   borderRadius: 28,
                   border: "1px solid rgba(255,255,255,0.15)",
@@ -399,9 +362,12 @@ export default function SaberesCientificosBlog() {
                       height: 120,
                       margin: "0 auto",
                       objectFit: "contain",
+                      display: "block",
                     }}
                   />
-                  <p style={{ marginTop: 8, fontSize: 13, color: "rgba(255,255,255,0.6)" }}>Canal de orientación en Telegram</p>
+                  <p style={{ marginTop: 8, fontSize: 13, color: "rgba(255,255,255,0.6)" }}>
+                    Canal de orientación en Telegram
+                  </p>
                 </div>
 
                 <div
@@ -415,7 +381,9 @@ export default function SaberesCientificosBlog() {
                 >
                   <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
                     <div style={{ width: 8, height: 8, borderRadius: "50%", background: c.cian }} />
-                    <p style={{ fontSize: 13, fontWeight: 700, color: c.cian, fontFamily: "'Space Mono', monospace" }}>Comunidad</p>
+                    <p style={{ fontSize: 13, fontWeight: 700, color: c.cian, fontFamily: "'Space Mono', monospace" }}>
+                      Comunidad
+                    </p>
                   </div>
                   <p style={{ fontSize: 14, lineHeight: 1.7, color: "#444" }}>
                     Un canal complementario para atender preguntas cuando realmente surgen: después de las charlas, durante una tarea o al pensar en el futuro universitario.
@@ -498,7 +466,13 @@ export default function SaberesCientificosBlog() {
             </p>
             <h2 style={{ marginTop: 12, fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.02em" }}>
               La ciencia necesita espacios{" "}
-              <span style={{ background: `linear-gradient(135deg, ${c.cian}, ${c.magenta})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+              <span
+                style={{
+                  background: `linear-gradient(135deg, ${c.cian}, ${c.magenta})`,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
                 cercanos y continuos
               </span>
               .
@@ -559,7 +533,14 @@ export default function SaberesCientificosBlog() {
                 </div>
                 <div style={{ width: 40, height: 4, borderRadius: 4, background: card.accent, marginBottom: 16 }} />
                 <h3 style={{ fontSize: 20, fontWeight: 800, marginBottom: 12 }}>{card.title}</h3>
-                <p style={{ fontSize: 14, lineHeight: 1.75, color: hoveredCard === i ? "rgba(255,255,255,0.7)" : "#666", transition: "color 0.4s" }}>
+                <p
+                  style={{
+                    fontSize: 14,
+                    lineHeight: 1.75,
+                    color: hoveredCard === i ? "rgba(255,255,255,0.7)" : "#666",
+                    transition: "color 0.4s",
+                  }}
+                >
                   {card.text}
                 </p>
               </div>
@@ -646,8 +627,33 @@ export default function SaberesCientificosBlog() {
           marginTop: 20,
         }}
       >
-        <div style={{ position: "absolute", bottom: -80, left: "20%", width: 300, height: 300, borderRadius: "50%", background: c.cian, opacity: 0.05, filter: "blur(80px)" }} />
-        <div style={{ position: "absolute", bottom: -60, right: "10%", width: 200, height: 200, borderRadius: "50%", background: c.fuccia, opacity: 0.05, filter: "blur(60px)" }} />
+        <div
+          style={{
+            position: "absolute",
+            bottom: -80,
+            left: "20%",
+            width: 300,
+            height: 300,
+            borderRadius: "50%",
+            background: c.cian,
+            opacity: 0.05,
+            filter: "blur(80px)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: -60,
+            right: "10%",
+            width: 200,
+            height: 200,
+            borderRadius: "50%",
+            background: c.fuccia,
+            opacity: 0.05,
+            filter: "blur(60px)",
+          }}
+        />
+
         <div
           style={{
             position: "relative",
@@ -680,6 +686,7 @@ export default function SaberesCientificosBlog() {
               </p>
             </div>
           </div>
+
           <a
             href={telegramLink}
             style={{
@@ -706,6 +713,7 @@ export default function SaberesCientificosBlog() {
             Entrar a chatUSB
           </a>
         </div>
+
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", padding: "16px 28px", textAlign: "center" }}>
           <p style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", fontFamily: "'Space Mono', monospace" }}>
             © 2026 Saberes Científicos · Universidad Simón Bolívar · Servicio Comunitario ED-2301
