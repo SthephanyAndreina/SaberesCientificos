@@ -346,9 +346,9 @@ export default function SaberesCientificosBlog() {
                   position: "relative",
                   borderRadius: 28,
                   border: "1px solid rgba(255,255,255,0.15)",
-                  background: "rgba(255,255,255,0.03)",
-                  backdropFilter: "blur(10px)",
-                  WebkitBackdropFilter: "blur(10px)",
+                  background: "rgba(255,255,255,0.01)",
+                  backdropFilter: "blur(2px)",
+                  WebkitBackdropFilter: "blur(2px)",
                   padding: 32,
                   boxShadow: "0 24px 80px rgba(0,0,0,0.3)",
                 }}
