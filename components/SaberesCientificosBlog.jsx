@@ -358,8 +358,8 @@ export default function SaberesCientificosBlog() {
                     src={chatUsbLogo}
                     alt="ChatUSB"
                     style={{
-                      width: 120,
-                      height: 120,
+                      width: 130,
+                      height: 130,
                       margin: "0 auto",
                       objectFit: "contain",
                       display: "block",
