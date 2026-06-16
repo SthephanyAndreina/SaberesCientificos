@@ -12,6 +12,7 @@ export default function SaberesCientificosBlog() {
   const [loaded, setLoaded] = useState(false);
   const [hoveredCard, setHoveredCard] = useState(null);
   const [hoveredPost, setHoveredPost] = useState(null);
+  const [openDropdown, setOpenDropdown] = useState(null);
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 100);
@@ -56,20 +57,28 @@ export default function SaberesCientificosBlog() {
 
   const posts = [
     {
-      title: "¿Cómo empezar una investigación escolar correctamente?",
+      title: "Ingresa a la USB",
       excerpt:
-        "Una guía breve para pasar de una idea general a una pregunta clara, con fuentes útiles y criterios básicos de organización.",
+        "Conoce la presentación de Saberes Científicos: una guía clara para dar tus primeros pasos hacia la vida universitaria en la USB.",
       tag: "Investigación",
       color: c.magenta,
       icon: "📝",
+      type: "link",
+      href: "/Presentacion_SC.pdf",
+      cta: "Abrir presentación (PDF) ↗",
     },
     {
-      title: "¿Qué debo saber antes de entrar a la universidad?",
+      title: "¿Qué puedo estudiar en la USB?",
       excerpt:
-        "Consejos sencillos sobre carreras, hábitos de estudio, adaptación académica y dudas frecuentes del paso de bachillerato a universidad.",
+        "Explora algunas de las carreras de la USB y revisa su pensum completo. Haz clic para ver la lista y abrir el plan de estudios.",
       tag: "Orientación",
       color: c.cian,
       icon: "🏛️",
+      type: "dropdown",
+      options: [
+        { label: "Licenciatura en Química", href: "/Pensum_Licenciatura_Quimica.pdf" },
+        { label: "Ingeniería de Materiales", href: "/Pensum_Ingenieria_Materiales.pdf" },
+      ],
     },
     {
       title: "Cómo usar la IA como apoyo y no como reemplazo",
@@ -78,6 +87,9 @@ export default function SaberesCientificosBlog() {
       tag: "Uso responsable de IA",
       color: c.naranja,
       icon: "🤖",
+      type: "link",
+      href: "/IA_apoyo_no_reemplazo.pdf",
+      cta: "Abrir documento (PDF) ↗",
     },
   ];
 
@@ -568,52 +580,180 @@ export default function SaberesCientificosBlog() {
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
-          {posts.map((post, i) => (
-            <article
-              key={post.title}
-              onMouseEnter={() => setHoveredPost(i)}
-              onMouseLeave={() => setHoveredPost(null)}
-              style={{
-                borderRadius: 24,
-                overflow: "hidden",
-                border: "1.5px solid #e8e8e8",
-                background: "#fff",
-                transition: "all 0.45s cubic-bezier(0.22, 1, 0.36, 1)",
-                transform: hoveredPost === i ? "translateY(-6px)" : "translateY(0)",
-                boxShadow: hoveredPost === i ? `0 20px 60px ${post.color}22` : "0 2px 12px rgba(0,0,0,0.04)",
-              }}
-            >
-              <div
+          {posts.map((post, i) => {
+            const isDropdown = post.type === "dropdown";
+            const isOpen = openDropdown === i;
+            return (
+              <article
+                key={post.title}
+                onMouseEnter={() => setHoveredPost(i)}
+                onMouseLeave={() => setHoveredPost(null)}
                 style={{
-                  height: 6,
-                  background: `linear-gradient(90deg, ${post.color}, ${post.color}88)`,
-                  transition: "height 0.3s",
-                  ...(hoveredPost === i ? { height: 8 } : {}),
+                  borderRadius: 24,
+                  overflow: "hidden",
+                  border: "1.5px solid #e8e8e8",
+                  background: "#fff",
+                  transition: "all 0.45s cubic-bezier(0.22, 1, 0.36, 1)",
+                  transform: hoveredPost === i ? "translateY(-6px)" : "translateY(0)",
+                  boxShadow: hoveredPost === i ? `0 20px 60px ${post.color}22` : "0 2px 12px rgba(0,0,0,0.04)",
                 }}
-              />
-              <div style={{ padding: "28px 24px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-                  <span style={{ fontSize: 24 }}>{post.icon}</span>
-                  <span
-                    style={{
-                      display: "inline-flex",
-                      borderRadius: 50,
-                      padding: "5px 14px",
-                      fontSize: 11,
-                      fontWeight: 700,
-                      color: "#fff",
-                      background: post.color,
-                      letterSpacing: "0.04em",
-                    }}
-                  >
-                    {post.tag}
-                  </span>
+              >
+                <div
+                  style={{
+                    height: 6,
+                    background: `linear-gradient(90deg, ${post.color}, ${post.color}88)`,
+                    transition: "height 0.3s",
+                    ...(hoveredPost === i ? { height: 8 } : {}),
+                  }}
+                />
+                <div style={{ padding: "28px 24px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
+                    <span style={{ fontSize: 24 }}>{post.icon}</span>
+                    <span
+                      style={{
+                        display: "inline-flex",
+                        borderRadius: 50,
+                        padding: "5px 14px",
+                        fontSize: 11,
+                        fontWeight: 700,
+                        color: "#fff",
+                        background: post.color,
+                        letterSpacing: "0.04em",
+                      }}
+                    >
+                      {post.tag}
+                    </span>
+                  </div>
+                  <h3 style={{ fontSize: 19, fontWeight: 800, lineHeight: 1.3, marginBottom: 12 }}>{post.title}</h3>
+                  <p style={{ fontSize: 14, lineHeight: 1.75, color: "#666" }}>{post.excerpt}</p>
+
+                  {post.type === "link" && (
+                    <a
+                      href={post.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 8,
+                        marginTop: 20,
+                        borderRadius: 14,
+                        padding: "11px 20px",
+                        fontSize: 13,
+                        fontWeight: 700,
+                        color: "#fff",
+                        background: post.color,
+                        transition: "transform 0.3s, box-shadow 0.3s",
+                        boxShadow: `0 4px 18px ${post.color}44`,
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = "translateY(-2px)";
+                        e.currentTarget.style.boxShadow = `0 8px 26px ${post.color}66`;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = "translateY(0)";
+                        e.currentTarget.style.boxShadow = `0 4px 18px ${post.color}44`;
+                      }}
+                    >
+                      {post.cta}
+                    </a>
+                  )}
+
+                  {isDropdown && (
+                    <div style={{ marginTop: 20 }}>
+                      <button
+                        type="button"
+                        aria-expanded={isOpen}
+                        onClick={() => setOpenDropdown(isOpen ? null : i)}
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          gap: 10,
+                          width: "100%",
+                          borderRadius: 14,
+                          padding: "11px 20px",
+                          fontSize: 13,
+                          fontWeight: 700,
+                          color: "#fff",
+                          border: "none",
+                          cursor: "pointer",
+                          background: post.color,
+                          transition: "transform 0.3s, box-shadow 0.3s",
+                          boxShadow: `0 4px 18px ${post.color}44`,
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.transform = "translateY(-2px)";
+                          e.currentTarget.style.boxShadow = `0 8px 26px ${post.color}66`;
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = "translateY(0)";
+                          e.currentTarget.style.boxShadow = `0 4px 18px ${post.color}44`;
+                        }}
+                      >
+                        Ver carreras
+                        <span
+                          style={{
+                            transition: "transform 0.3s",
+                            transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+                            fontSize: 11,
+                          }}
+                        >
+                          ▼
+                        </span>
+                      </button>
+
+                      <div
+                        style={{
+                          display: "grid",
+                          gridTemplateRows: isOpen ? "1fr" : "0fr",
+                          transition: "grid-template-rows 0.35s cubic-bezier(0.22, 1, 0.36, 1)",
+                        }}
+                      >
+                        <div style={{ overflow: "hidden" }}>
+                          <div style={{ display: "flex", flexDirection: "column", gap: 8, paddingTop: 12 }}>
+                            {post.options.map((opt) => (
+                              <a
+                                key={opt.label}
+                                href={opt.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "space-between",
+                                  gap: 10,
+                                  borderRadius: 12,
+                                  padding: "12px 16px",
+                                  fontSize: 13,
+                                  fontWeight: 600,
+                                  color: c.negro,
+                                  border: `1.5px solid ${post.color}33`,
+                                  background: `${post.color}0d`,
+                                  transition: "background 0.25s, border-color 0.25s",
+                                }}
+                                onMouseEnter={(e) => {
+                                  e.currentTarget.style.background = `${post.color}1f`;
+                                  e.currentTarget.style.borderColor = `${post.color}88`;
+                                }}
+                                onMouseLeave={(e) => {
+                                  e.currentTarget.style.background = `${post.color}0d`;
+                                  e.currentTarget.style.borderColor = `${post.color}33`;
+                                }}
+                              >
+                                {opt.label}
+                                <span style={{ fontSize: 12, color: post.color, fontWeight: 700 }}>Pensum ↗</span>
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <h3 style={{ fontSize: 19, fontWeight: 800, lineHeight: 1.3, marginBottom: 12 }}>{post.title}</h3>
-                <p style={{ fontSize: 14, lineHeight: 1.75, color: "#666" }}>{post.excerpt}</p>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </section>
 
