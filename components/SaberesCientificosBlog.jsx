@@ -83,7 +83,7 @@ export default function SaberesCientificosBlog() {
     {
       title: "Cómo usar la IA como apoyo y no como reemplazo",
       excerpt:
-        "Usar herramientas digitales con criterio también es parte de aprender. Aquí mostramos cómo aprovecharlas sin perder autonomía.",
+        "Usar herramientas digitales con criterio también es parte de aprender.",
       tag: "Uso responsable de IA",
       color: c.naranja,
       icon: "🤖",
